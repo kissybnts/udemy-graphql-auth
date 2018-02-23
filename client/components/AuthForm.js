@@ -23,20 +23,23 @@ class AuthForm extends Component {
           onSubmit={this.onSubmit.bind(this)}
         >
           <div className="input-field">
-            <label>Email</label>
             <input
               type="email"
               value={this.state.email}
               onChange={event => this.setState({ email: event.target.value })}
+              placeholder={'Email'}
             />
           </div>
           <div className="input-field">
-            <label>Password</label>
             <input
               type="password"
               value={this.state.password}
               onChange={event => this.setState({ password: event.target.value })}
+              placeholder={'Password'}
             />
+          </div>
+          <div className="errors">
+            {this.props.errors.map(error => <div key={error}>{error}</div>)}
           </div>
           <button className="btn">Submit</button>
         </form>
